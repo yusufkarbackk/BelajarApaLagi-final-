@@ -1,0 +1,54 @@
+@extends('layouts.admin')
+
+@section('content')
+
+<div class="container">
+    <h1>Daftar Course</h1>
+    <table class="table mt-5 table-responsive-sm text-center table-bordered">
+        <thead class="thead-dark">
+          <tr>
+            <th scope="col">ID.</th>
+            <th scope="col">Title</th>
+            <th scope="col">Duration</th>
+            <th scope="col">Date</th>
+            <th scope="col">price</th>
+            <th scope="col">location</th>
+            <th scope="col">about</th>
+            <th scope="col">mentor</th>
+            <th scope="col">action</th>
+          </tr>
+        </thead>
+        <tbody>
+
+          @foreach ($courses as $course)
+          <tr>
+            <td>{{$course->title}}</td>
+            <td>{{$course->title}}</td>
+            <td>{{$course->duration}}</td>
+            <td>{{$course->date}}</td>
+            <td>{{$course->price}}</td>
+            <td>{{$course->location}}</td>
+            <td>{{$course->about}}</td>
+            <td>{{$course->mentor}}</td>
+            <td>
+              <div class="row justify-content-center ">
+              <a href="{{route('courses.edit', $course->id)}}">
+                  <div class="btn btn-info ml-2 mr-2">
+                    Edit
+                  </div>
+                </a>
+              <form action="{{route('courses.destroy', $course->id)}}" method="POST">
+                @csrf
+                @method('DELETE')
+                <button class="btn btn-danger mt-2">
+                  Delete
+                </button>
+              </form>
+              </div>
+            </td>
+          </tr>
+          @endforeach
+        </tbody>
+      </table>
+</div>
+@endsection
