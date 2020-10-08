@@ -29,5 +29,5 @@ Route::prefix('admin')
             ->name('dashboard');
 
             Route::resource('courses', CourseController::class);
-
+            Route::resource('galleries', GalleryController::class);
         });

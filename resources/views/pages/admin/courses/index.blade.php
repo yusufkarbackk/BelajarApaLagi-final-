@@ -4,7 +4,10 @@
 
 <div class="container">
     <h1>Daftar Course</h1>
-    <table class="table mt-5 table-responsive-sm text-center table-bordered">
+    <div class="d-sm-flex align-items-center justify-content-between mb-4">
+      <a href="{{route('courses.create')}}" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i class="fas fa-download fa-sm text-white-50"></i> Tambah Course</a>
+    </div>
+    <table class="table mt-5 text-center table-bordered">
         <thead class="thead-dark">
           <tr>
             <th scope="col">ID.</th>
@@ -22,7 +25,7 @@
 
           @foreach ($courses as $course)
           <tr>
-            <td>{{$course->title}}</td>
+            <td>{{$course->id}}</td>
             <td>{{$course->title}}</td>
             <td>{{$course->duration}}</td>
             <td>{{$course->date}}</td>

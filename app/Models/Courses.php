@@ -15,4 +15,9 @@ class Courses extends Model
     protected $table ='courses';
 
     protected $fillable = ['title', 'duration', 'price', 'location', 'about', 'date', 'mentor'];
+
+    public function gallery()
+    {
+        return $this->hasOne('App\Models\Gallery', 'courses_id', 'id');
+    }
 }

@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Models\Courses;
+use App\Models\Gallery;
 
 class CourseController extends Controller
 {
@@ -63,7 +64,7 @@ class CourseController extends Controller
             $course::create($request->all());
 
 
-        return view('pages.admin.courses.index');
+        return redirect('/admin/courses');
 
     }
 
@@ -133,6 +134,7 @@ class CourseController extends Controller
     public function destroy($id)
     {
         $course = Courses::find($id);
+
         $course->delete();
         return redirect('/admin/courses');
 
