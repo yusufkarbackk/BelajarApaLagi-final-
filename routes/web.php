@@ -30,4 +30,5 @@ Route::prefix('admin')
 
             Route::resource('courses', CourseController::class);
             Route::resource('galleries', GalleryController::class);
+            Route::resource('transactions', TransactionsController::class);
         });

@@ -94,13 +94,19 @@ class GalleryController extends Controller
     {
         $gallery = Gallery::find($id);
 
-        $gallery->image = $request->image;
-        $gallery->mentor = $request->mentor;
 
         $validatedData = $request->validate([
             'image' => 'required',
             'mentor' => 'required',
         ]);
+
+        $gallery->image = $request->file('image')->store(
+            'assets/gallery', 'public'
+        );
+
+        $gallery->mentor = $request->file('mentor')->store(
+            'assets/gallery', 'public'
+        );
 
         $gallery->save();
         return redirect('/admin/galleries');

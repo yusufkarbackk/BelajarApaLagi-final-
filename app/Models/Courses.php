@@ -18,6 +18,11 @@ class Courses extends Model
 
     public function gallery()
     {
-        return $this->hasOne('App\Models\Gallery', 'courses_id', 'id');
+        return $this->hasOne('App\Models\Gallery', 'course_id', 'id');
+    }
+
+    public function transaction()
+    {
+        return $this->hasMany('App\Models\Transaction', 'transaction_id', 'id');
     }
 }

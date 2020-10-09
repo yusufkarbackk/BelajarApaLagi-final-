@@ -22,6 +22,11 @@ class User extends Authenticatable
         'password',
     ];
 
+    public function transaction ()
+    {
+        return $this->hasOne('App\Models\Transaction', 'transaction_id', 'id');
+    }
+
     /**
      * The attributes that should be hidden for arrays.
      *

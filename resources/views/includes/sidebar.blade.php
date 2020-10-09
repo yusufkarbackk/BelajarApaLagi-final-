@@ -33,12 +33,16 @@
       <span>Courses</span>
     </a>
   </li>
-
-  <!-- Nav Item - Utilities Collapse Menu -->
   <li class="nav-item">
     <a class="nav-link collapsed" href="{{route('galleries.index')}}">
       <i class="far fa-images"></i>      
       <span>Galleries</span>
+    </a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link collapsed" href="{{route('transactions.index')}}">
+      <i class="fas fa-money-check-alt"></i>      
+      <span>Transactions</span>
     </a>
   </li>
 

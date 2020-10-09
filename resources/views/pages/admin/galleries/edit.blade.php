@@ -26,11 +26,11 @@
     </div>
     <div class="form-group">
       <label for="image">Course Image</label>
-      <input type="file" id="image" name="image" value="{{old('image') ? old('image') : $galleries->image}}">
+      <input type="file" id="image" name="image" value="{{old('image') }} ">
     </div>
     <div class="form-group">
       <label for="mentor">Mentor Image</label>
-      <input type="file" id="mentor" name="mentor" value="{{old('mentor') ? old('mentor') : $galleries->mentor}}">
+      <input type="file" id="mentor" name="mentor" value="{{old('mentor')}}">
     </div>
     <button type="submit" class="btn btn-primary">Submit</button>
 </form>
