@@ -21,7 +21,6 @@
       <label for="course_id">Course Image</label>
       <select name="course_id" required class="form-control">
           <option value="{{$galleries->course->id}}">{{$galleries->course->title}}</option>
-          
       </select>
     </div>
     <div class="form-group">

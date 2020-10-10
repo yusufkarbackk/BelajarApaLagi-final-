@@ -32,3 +32,7 @@ Route::prefix('admin')
             Route::resource('galleries', GalleryController::class);
             Route::resource('transactions', TransactionsController::class);
         });
+
+Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
+    return view('dashboard');
+})->name('dashboard');

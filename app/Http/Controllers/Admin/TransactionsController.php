@@ -61,7 +61,9 @@ class TransactionsController extends Controller
      */
     public function edit($id)
     {
-        //
+        $transactions = Transaction::find($id);
+        return view('pages.admin.transactions.edit', ['transactions' => $transactions]);
+
     }
 
     /**
@@ -73,7 +75,17 @@ class TransactionsController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $transactions = Transaction::find($id);
+        
+        $transactions->transaction_status = $request->transaction_status;
+
+        $validatedData = $request->validate([
+            'transaction_status' => 'required',
+        ]);
+
+        $transactions->save();
+        return redirect('/admin/transactions');
+
     }
 
     /**
@@ -84,6 +96,10 @@ class TransactionsController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $transactions = Transaction::find($id);
+
+        $transactions->delete();
+        return redirect('/admin/transactions');
+
     }
 }
