@@ -1,0 +1,277 @@
+$purple: #9d53ff;
+$orange: #fb9649;
+$hover: #f27b21;
+$source: "source sans pro";
+$playfair: "playfair display";
+
+.navbar {
+  background-color: $purple;
+}
+
+.navbar-brand {
+  img {
+    max-height: 40px;
+  }
+}
+
+.signup-button {
+  background-color: white;
+  border: 0;
+  border-radius: 30px;
+  font-family: "source sans pro";
+  font-weight: normal;
+}
+.signin-button {
+  background-color: $orange;
+  border: 0;
+  border-radius: 30px;
+  font-family: "source sans pro";
+  font-weight: normal;
+}
+
+#hero {
+  min-height: 70vh;
+  .hero-text {
+    h1 {
+      font-family: "playfair display";
+      font-size: 60px;
+    }
+    span {
+      color: $purple;
+    }
+  }
+  .hero-image {
+    max-width: 100%;
+    height: auto;
+  }
+  .btn-hero {
+    background-color: $orange;
+    border-radius: 30px;
+    font-family: "source sans pro";
+    font-weight: normal;
+    font-size: 18px;
+  }
+  .btn-hero:hover {
+    background-color: $hover;
+  }
+}
+
+.section-classes-bg {
+  min-height: 400px;
+  margin-top: 100px;
+  background-image: linear-gradient(#c89dff, #6e31bf);
+
+  .section-classes-heading {
+    h2 {
+      font-family: $playfair;
+      font-weight: bold;
+    }
+  }
+}
+
+.section-classes {
+  margin-top: -200px;
+  z-index: 5;
+  .card-class {
+    background-size: cover;
+    min-height: 350px;
+    margin-bottom: 150px;
+    padding: 15px;
+
+    .judul {
+      font-family: $playfair;
+      color: white;
+      font-size: 24px;
+      margin-top: 45px;
+    }
+    .btn-join {
+      background-color: $orange;
+      border-radius: 30px;
+      margin-top: 200px;
+      font-weight: 400;
+    }
+    .btn-join:hover {
+      background-color: $hover;
+    }
+  }
+}
+
+.reason {
+  .reason-heading {
+    font-family: $playfair;
+    font-weight: bold;
+  }
+  .reason-content {
+    img {
+      height: auto;
+      max-width: 100%;
+    }
+
+    h4 {
+      font-family: $playfair;
+    }
+
+    p {
+      font-family: $source;
+    }
+  }
+  .btn-reason {
+    background-color: $orange;
+    font-family: $source;
+    border-radius: 30px;
+    border: 0;
+    font-weight: normal;
+  }
+  .btn-reason:hover {
+    background-color: $hover;
+  }
+}
+
+.footer-content {
+  li {
+    list-style: none;
+  }
+}
+
+.copyright {
+  font-size: 11px;
+}
+
+.details {
+  min-height: 100vh;
+  h4 {
+    font-family: $playfair;
+    float: left;
+  }
+  .details-card {
+    padding: 20px;
+
+    img {
+      padding: 20px;
+      padding-bottom: 0;
+      height: auto;
+      width: 350px;
+      max-width: 100%;
+    }
+
+    .card-body {
+      padding-top: 0;
+      margin-bottom: 10px;
+
+      .card-title {
+        font-family: $source;
+      }
+      .card-text {
+        font-family: $source;
+      }
+      .mentor {
+        float: left;
+        img {
+          width: 100px;
+          height: auto;
+          padding: 0;
+          max-width: 100%;
+        }
+      }
+    }
+  }
+  .join-card {
+    height: 400px;
+    h5 {
+      font-family: $playfair;
+    }
+    ul {
+      li {
+        border: none;
+        span {
+          font-weight: bold;
+        }
+      }
+    }
+    .btn {
+      background-color: $orange;
+      font-family: $source;
+      border: 0;
+      font-size: 18px;
+      border-radius: 30px;
+    }
+    .btn:hover {
+      background-color: #f27b21;
+    }
+  }
+}
+
+.checkout {
+  .checkout-header {
+    h2 {
+      font-family: $playfair;
+    }
+  }
+  .checkout-illust {
+    img {
+      max-width: 100%;
+      height: auto;
+    }
+  }
+  .checkout-card {
+    .card-title {
+      font-family: $source;
+    }
+    ul {
+      li {
+        border: none;
+        font-family: $source;
+        span {
+          font-weight: bold;
+        }
+      }
+    }
+    .bank-details {
+      height: 150px;
+      .bank-item {
+        width: 50%;
+        float: right;
+        .bank-image {
+          float: left;
+        }
+        .bank-desc {
+          float: left;
+          margin-left: 15px;
+          font-family: $source;
+        }
+      }
+    }
+  }
+  .btn-pay {
+    background-color: $orange;
+    border: none;
+    font-family: $source;
+    border-radius: 30px;
+  }
+  .btn-pay:hover {
+    background-color: #f27b21;
+  }
+}
+
+.success {
+  .success-image {
+    max-width: 100%;
+    height: auto;
+    width: 500px;
+  }
+  .success-text {
+    font-family: $source;
+    h2 {
+      font-size: 36px;
+    }
+  }
+  .btn-success {
+    background-color: $orange;
+    border-radius: 30px;
+    border: none;
+    font-family: $source;
+  }
+  .btn-success:hover {
+    background-color: #f27b21;
+  }
+}

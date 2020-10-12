@@ -1,0 +1,284 @@
+.navbar {
+  background-color: #9d53ff;
+}
+
+.navbar-brand img {
+  max-height: 40px;
+}
+
+.signup-button {
+  background-color: white;
+  border: 0;
+  border-radius: 30px;
+  font-family: "source sans pro";
+  font-weight: normal;
+}
+
+.signin-button {
+  background-color: #fb9649;
+  border: 0;
+  border-radius: 30px;
+  font-family: "source sans pro";
+  font-weight: normal;
+}
+
+#hero {
+  min-height: 70vh;
+}
+
+#hero .hero-text h1 {
+  font-family: "playfair display";
+  font-size: 60px;
+}
+
+#hero .hero-text span {
+  color: #9d53ff;
+}
+
+#hero .hero-image {
+  max-width: 100%;
+  height: auto;
+}
+
+#hero .btn-hero {
+  background-color: #fb9649;
+  border-radius: 30px;
+  font-family: "source sans pro";
+  font-weight: normal;
+  font-size: 18px;
+}
+
+#hero .btn-hero:hover {
+  background-color: #f27b21;
+}
+
+.section-classes-bg {
+  min-height: 400px;
+  margin-top: 100px;
+  background-image: -webkit-gradient(linear, left top, left bottom, from(#c89dff), to(#6e31bf));
+  background-image: linear-gradient(#c89dff, #6e31bf);
+}
+
+.section-classes-bg .section-classes-heading h2 {
+  font-family: "playfair display";
+  font-weight: bold;
+}
+
+.section-classes {
+  margin-top: -200px;
+  z-index: 5;
+}
+
+.section-classes .card-class {
+  background-size: cover;
+  min-height: 350px;
+  margin-bottom: 150px;
+  padding: 15px;
+}
+
+.section-classes .card-class .judul {
+  font-family: "playfair display";
+  color: white;
+  font-size: 24px;
+  margin-top: 45px;
+}
+
+.section-classes .card-class .btn-join {
+  background-color: #fb9649;
+  border-radius: 30px;
+  margin-top: 200px;
+  font-weight: 400;
+}
+
+.section-classes .card-class .btn-join:hover {
+  background-color: #f27b21;
+}
+
+.reason .reason-heading {
+  font-family: "playfair display";
+  font-weight: bold;
+}
+
+.reason .reason-content img {
+  height: auto;
+  max-width: 100%;
+}
+
+.reason .reason-content h4 {
+  font-family: "playfair display";
+}
+
+.reason .reason-content p {
+  font-family: "source sans pro";
+}
+
+.reason .btn-reason {
+  background-color: #fb9649;
+  font-family: "source sans pro";
+  border-radius: 30px;
+  border: 0;
+  font-weight: normal;
+}
+
+.reason .btn-reason:hover {
+  background-color: #f27b21;
+}
+
+.footer-content li {
+  list-style: none;
+}
+
+.copyright {
+  font-size: 11px;
+}
+
+.details {
+  min-height: 100vh;
+}
+
+.details h4 {
+  font-family: "playfair display";
+  float: left;
+}
+
+.details .details-card {
+  padding: 20px;
+}
+
+.details .details-card img {
+  padding: 20px;
+  padding-bottom: 0;
+  height: auto;
+  width: 350px;
+  max-width: 100%;
+}
+
+.details .details-card .card-body {
+  padding-top: 0;
+  margin-bottom: 10px;
+}
+
+.details .details-card .card-body .card-title {
+  font-family: "source sans pro";
+}
+
+.details .details-card .card-body .card-text {
+  font-family: "source sans pro";
+}
+
+.details .details-card .card-body .mentor {
+  float: left;
+}
+
+.details .details-card .card-body .mentor img {
+  width: 100px;
+  height: auto;
+  padding: 0;
+  max-width: 100%;
+}
+
+.details .join-card {
+  height: 400px;
+}
+
+.details .join-card h5 {
+  font-family: "playfair display";
+}
+
+.details .join-card ul li {
+  border: none;
+}
+
+.details .join-card ul li span {
+  font-weight: bold;
+}
+
+.details .join-card .btn {
+  background-color: #fb9649;
+  font-family: "source sans pro";
+  border: 0;
+  font-size: 18px;
+  border-radius: 30px;
+}
+
+.details .join-card .btn:hover {
+  background-color: #f27b21;
+}
+
+.checkout .checkout-header h2 {
+  font-family: "playfair display";
+}
+
+.checkout .checkout-illust img {
+  max-width: 100%;
+  height: auto;
+}
+
+.checkout .checkout-card .card-title {
+  font-family: "source sans pro";
+}
+
+.checkout .checkout-card ul li {
+  border: none;
+  font-family: "source sans pro";
+}
+
+.checkout .checkout-card ul li span {
+  font-weight: bold;
+}
+
+.checkout .checkout-card .bank-details {
+  height: 150px;
+}
+
+.checkout .checkout-card .bank-details .bank-item {
+  width: 50%;
+  float: right;
+}
+
+.checkout .checkout-card .bank-details .bank-item .bank-image {
+  float: left;
+}
+
+.checkout .checkout-card .bank-details .bank-item .bank-desc {
+  float: left;
+  margin-left: 15px;
+  font-family: "source sans pro";
+}
+
+.checkout .btn-pay {
+  background-color: #fb9649;
+  border: none;
+  font-family: "source sans pro";
+  border-radius: 30px;
+}
+
+.checkout .btn-pay:hover {
+  background-color: #f27b21;
+}
+
+.success .success-image {
+  max-width: 100%;
+  height: auto;
+  width: 500px;
+}
+
+.success .success-text {
+  font-family: "source sans pro";
+}
+
+.success .success-text h2 {
+  font-size: 36px;
+}
+
+.success .btn-success {
+  background-color: #fb9649;
+  border-radius: 30px;
+  border: none;
+  font-family: "source sans pro";
+}
+
+.success .btn-success:hover {
+  background-color: #f27b21;
+}
+/*# sourceMappingURL=style.css.map */
