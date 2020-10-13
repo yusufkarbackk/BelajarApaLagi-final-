@@ -21,8 +21,13 @@ use App\Http\Controllers\CheckoutController;
 
 
 Route::get('/', [HomeController::class, 'index'])->name('home');
-Route::get('/details', [DetailsController::class, 'index'])->name('details')->middleware('auth', 'verified');
-Route::get('/checkout', [CheckoutController::class, 'checkout'])->name('checkout')->middleware('auth', 'verified');
+
+Route::get('/details/{id}', [DetailsController::class, 'index'])->name('details');
+
+Route::get('/checkout/{id}', [CheckoutController::class, 'index'])->name('checkout')->middleware('auth', 'verified');
+
+Route::post('/checkout/create/{id}', [CheckoutController::class, 'proccess'])->name('checkout-proccess')->middleware('auth', 'verified');
+
 Route::get('/success', [CheckoutController::class, 'success'])->name('success')->middleware('auth', 'verified');
 
 Route::get('/email/verify', function () {

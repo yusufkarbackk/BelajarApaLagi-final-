@@ -41,13 +41,13 @@
               style="width: 100%"
             >
               <div class="card-body">
-                <h5 class="card-title">Photography Class</h5>
+                <h5 class="card-title">{{$transaction->course->title}}</h5>
                 <ul class="list-group list-group-horizontal text-center">
                   <li class="list-group-item text-left flex-fill">
                     <span>Name</span>
                   </li>
                   <li class="list-group-item text-right flex-fill">
-                    Yusuf rafif
+                    {{$transaction->transaction_belongs->name}}
                   </li>
                 </ul>
                 <ul class="list-group list-group-horizontal text-center">
@@ -55,15 +55,15 @@
                     <span>Email</span>
                   </li>
                   <li class="list-group-item text-right flex-fill">
-                    yusufkarback@gmail.com
+                    {{$transaction->transaction_belongs->email}}                  
                   </li>
                 </ul>
                 <ul class="list-group list-group-horizontal text-center">
                   <li class="list-group-item text-left flex-fill">
-                    <span>Phone Number</span>
+                    <span>Transaction ID</span>
                   </li>
                   <li class="list-group-item text-right flex-fill">
-                    081288749367
+                    {{$transaction->id}}
                   </li>
                 </ul>
                 <hr />

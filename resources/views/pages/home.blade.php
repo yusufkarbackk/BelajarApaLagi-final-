@@ -82,51 +82,25 @@
 <section id="classes-content">
   <div class="container">
     <div class="section-classes row justify-content-center align-items-center">
-      <div class="col-sm-12 col-md-4 col-xl-3">
-        <div class="card-class text-center d-flex flex-column" 
-        style="background-image: url('frontend/images/erik-mclean-9XK7vgoGSgc-unsplash@2x.png');
-                width: 100%;
-                background-position: center;">
-          <div class="judul">Photography Class</div>
-          <div>
-            <form action="{{route('details')}}">
-              <button class="btn px-5 btn-join">
-                Join Now
-              </button>
-            </form>
+      @foreach ($courses as $course)
+        <div class="col-sm-12 col-md-4 col-xl-3">
+          <div class="card-class text-center d-flex flex-column" 
+          style="background-image: url('{{$course->gallery ? 
+                  Storage::url($course->gallery->image) : ''}}');
+                  width: 100%;
+                  background-position: center;">
+            <div class="judul">{{$course->title}}</div>
+            <div>
+              <form action="{{route('details', $course->id)}}">
+                @csrf
+                <button class="btn px-5 btn-join">
+                  Join Now
+                </button>
+              </form>
+            </div>
           </div>
         </div>
-      </div>
-      <div class="col-sm-12 col-md-4 col-xl-3">
-        <div class="card-class text-center d-flex flex-column" 
-        style="background-image: url('frontend/images/art@2x.jpg');
-                width: 100%;
-                background-position: center;">
-          <div class="judul">Art Class</div>
-          <div>
-            <form action="#">
-              <button class="btn px-5 btn-join">
-                Join Now
-              </button>
-            </form>
-          </div>
-        </div>
-      </div>
-      <div class="col-sm-12 col-md-4 col-xl-3">
-        <div class="card-class text-center d-flex flex-column" 
-        style="background-image: url('frontend/images/barista\ class@2x.png');
-                width: 100%;
-                background-position: center;">
-          <div class="judul">Barista Class</div>
-          <div>
-            <form action="#">
-              <button class="btn px-5 btn-join">
-                Join Now
-              </button>
-            </form>
-          </div>
-        </div>
-      </div>
+      @endforeach
     </div>
   </div>
 </section>
