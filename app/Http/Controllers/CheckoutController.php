@@ -6,25 +6,20 @@ use Illuminate\Http\Request;
 use App\Models\Courses;
 use App\Models\Gallery;
 use App\Models\Transaction;
+use App\Models\User;
 use Illuminate\Support\Facades\Auth;
 
 class CheckoutController extends Controller
 {
     public function index($id)
     {
-        $transaction = Transaction::with(['transaction_belongs', 'course'])->find($id);
-        dd($transaction);
+        $transaction = Transaction::with(['user', 'course'])->find($id);
+        
         return view('pages.checkout', ['transaction' => $transaction]);
     }
 
     public function proccess (Request $request, $id)
     {
-        $validatedData = $request->validate([
-            'name' => 'required|max:255',
-            'email' => 'required',
-            'course_id' => 'required',
-            'transaction_status' => 'required',
-        ]);
 
         $transaction = new Transaction;
 
@@ -32,17 +27,19 @@ class CheckoutController extends Controller
         $transaction->email = Auth::user()->email;
         $transaction->course_id = $id;
         $transaction->transaction_status = 'IN_CART';
+        $transaction->users_id = Auth::user()->id;
         $transaction->save();
-
-        dd($id);
 
         return redirect()->route('checkout', $transaction->id);
 
 
     }
 
-    public function success()
+    public function success ($id)
     {
+        $transaction = Transaction::find($id);
+        $transaction->transaction_status = 'PROCESSED';
+        $transaction->save();
         return view('pages.success');
     }
 }

@@ -11,11 +11,11 @@ class Transaction extends Model
     use HasFactory;
     use SoftDeletes;
 
-    protected $fillable = ['course_id', 'name', 'email', 'status'];
+    protected $fillable = ['course_id', 'name', 'email', 'status', 'users_id'];
 
-    public function transaction_belongs()
+    public function user()
     {
-        return $this->belongsTo('App\Models\User', 'transaction_id', 'id');
+        return $this->belongsTo('App\Models\User', 'users_id', 'id');
     }
 
     public function course()

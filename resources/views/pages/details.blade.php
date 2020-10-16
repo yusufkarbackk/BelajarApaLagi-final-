@@ -3,7 +3,7 @@
 @section('content')
 <nav class="navbar navbar-expand-lg navbar-light">
     <div class="container">
-      <a class="navbar-brand" href="{{route('home')}}">
+      <a class="navbar-brand" href="">
         <img src="{{url('frontend/images/Group 29@2x.png')}}" alt="" />
       </a>
       <button
@@ -34,7 +34,7 @@
         </ul>
       </div>
     </div>
-</nav>
+  </nav>
 
   <section class="details mt-5" id="details">
     <div class="container">
@@ -99,13 +99,14 @@
               <li class="list-group-item text-right flex-fill">Rp{{$details->price}}
               </li>
             </ul>
-            <form action="{{route('checkout-proccess' ,$details->id)}}" method="post">
+
+            <form action="{{route('checkout-proccess', $details->id)}}" method="post">
               @csrf
-              @method('POST')
               <button class="btn btn-block mt-5 btn-primary" type="submit">
                 Join Now
               </button>
             </form>
+
           </div>
         </div>
       </div>

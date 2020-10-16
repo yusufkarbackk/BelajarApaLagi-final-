@@ -28,7 +28,7 @@ Route::get('/checkout/{id}', [CheckoutController::class, 'index'])->name('checko
 
 Route::post('/checkout/create/{id}', [CheckoutController::class, 'proccess'])->name('checkout-proccess')->middleware('auth', 'verified');
 
-Route::get('/success', [CheckoutController::class, 'success'])->name('success')->middleware('auth', 'verified');
+Route::get('/success/{id}', [CheckoutController::class, 'success'])->name('success')->middleware('auth', 'verified');
 
 Route::get('/email/verify', function () {
     return view('auth.verify-email');
@@ -40,7 +40,7 @@ Route::prefix('admin')
         ->namespace('Admin')
         ->group(function() {
             Route::get('/', [DashboardController::class, 'index'])
-            ->name('dashboard')
+            ->name('admin')
             ->middleware('auth', 'IsAdmin', 'verified');
 
             Route::resource('courses', CourseController::class)->middleware('auth', 'IsAdmin', 'verified');

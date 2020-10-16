@@ -280,4 +280,112 @@
 .success .btn-success:hover {
   background-color: #f27b21;
 }
+
+.auth-background {
+  background-color: white;
+}
+
+.auth-background .login-content {
+  min-height: 100vh;
+}
+
+.auth-background .login-content .login-img img {
+  height: auto;
+  max-width: 100%;
+  width: 100%;
+}
+
+.auth-background .login-content .login-card .card {
+  background-color: #9d53ff;
+}
+
+.auth-background .login-content .login-card .card .login-text {
+  font-family: "source sans pro";
+  color: white;
+}
+
+.auth-background .login-content .login-card .card .login-logo {
+  max-width: 300px;
+}
+
+.auth-background .login-content .login-card .card .btn-login {
+  background-color: #fb9649;
+  border: 0;
+  font-weight: bolder;
+}
+
+.auth-background .login-content .login-card .card .btn-login:hover {
+  background-color: #f27b21;
+}
+
+.auth-background .login-content .login-card .card .btn-register {
+  background-color: #fb9649;
+  color: black;
+  border: 0;
+  font-weight: bolder;
+}
+
+.auth-background .login-content .login-card .card .forget-pass:active {
+  color: white;
+}
+
+.auth-background .login-content .login-card .card .forget-pass {
+  color: white;
+}
+
+.auth-background .login-content .login-card .card .forget-pass:visited {
+  color: white;
+}
+
+.auth-background .register-content {
+  min-height: 100vh;
+}
+
+.auth-background .register-content .login-img img {
+  height: auto;
+  max-width: 100%;
+  width: 100%;
+}
+
+.auth-background .register-content .register-card .card {
+  background-color: #9d53ff;
+}
+
+.auth-background .register-content .register-card .card .login-text {
+  font-family: "source sans pro";
+  color: white;
+}
+
+.auth-background .register-content .register-card .card .login-logo {
+  max-width: 300px;
+}
+
+.auth-background .register-content .register-card .card .btn-login {
+  background-color: #fb9649;
+  border: 0;
+  font-weight: bolder;
+}
+
+.auth-background .register-content .register-card .card .btn-register:hover {
+  background-color: #f27b21;
+}
+
+.auth-background .register-content .register-card .card .btn-register {
+  background-color: #fb9649;
+  color: white;
+  border: 0;
+  font-weight: normal;
+}
+
+.auth-background .register-content .register-card .card .already-regist:active {
+  color: white;
+}
+
+.auth-background .register-content .register-card .card .already-regist {
+  color: white;
+}
+
+.auth-background .register-content .register-card .card .already-regist:visited {
+  color: white;
+}
 /*# sourceMappingURL=style.css.map */

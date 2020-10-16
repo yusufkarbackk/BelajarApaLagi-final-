@@ -275,3 +275,99 @@ $playfair: "playfair display";
     background-color: #f27b21;
   }
 }
+
+.auth-background{
+  background-color: white;
+  .login-content{
+    min-height: 100vh;
+    .login-img{
+      img{
+        height: auto;
+        max-width: 100%;
+        width: 100%;
+      }
+    }
+    .login-card{
+      .card{
+        background-color: $purple;
+        .login-text{
+          font-family: $source;
+          color: white;
+        }
+        .login-logo{
+          max-width: 300px;
+        }
+        .btn-login{
+          background-color: $orange;
+          border: 0;
+          font-weight: bolder;
+        }
+        .btn-login:hover{
+          background-color: $hover;
+        }
+        .btn-register{
+          background-color: $orange;
+          color: black;
+          border: 0;
+          font-weight: bolder;
+        }
+        .forget-pass:active{
+          color: white;
+        }
+        .forget-pass{
+          color: white;
+        }
+        .forget-pass:visited{
+          color: white;
+        }
+      }
+    }
+  }
+
+  .register-content{
+    min-height: 100vh;
+    .login-img{
+      img{
+        height: auto;
+        max-width: 100%;
+        width: 100%;
+      }
+    }
+    .register-card{
+      .card{
+        background-color: $purple;
+        .login-text{
+          font-family: $source;
+          color: white;
+        }
+        .login-logo{
+          max-width: 300px;
+        }
+        .btn-login{
+          background-color: $orange;
+          border: 0;
+          font-weight: bolder;
+        }
+        .btn-register:hover{
+          background-color: $hover;
+        }
+        .btn-register{
+          background-color: $orange;
+          color: white;
+          border: 0;
+          font-weight: normal;
+        }
+        .already-regist:active{
+          color: white;
+        }
+        .already-regist{
+          color: white;
+        }
+        .already-regist:visited{
+          color: white;
+        }
+      }
+    }
+  }
+
+}

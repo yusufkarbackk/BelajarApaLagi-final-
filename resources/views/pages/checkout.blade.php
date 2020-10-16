@@ -47,7 +47,7 @@
                     <span>Name</span>
                   </li>
                   <li class="list-group-item text-right flex-fill">
-                    {{$transaction->transaction_belongs->name}}
+                    {{$transaction->user->name}}
                   </li>
                 </ul>
                 <ul class="list-group list-group-horizontal text-center">
@@ -55,7 +55,7 @@
                     <span>Email</span>
                   </li>
                   <li class="list-group-item text-right flex-fill">
-                    {{$transaction->transaction_belongs->email}}                  
+                    {{$transaction->user->email}}                  
                   </li>
                 </ul>
                 <ul class="list-group list-group-horizontal text-center">
@@ -91,9 +91,13 @@
                     </div>
                   </div>
                 </div>
-                <a href="{{route('success')}}" class="btn btn-primary btn-block btn-pay"
-                  >I Have Paid</a
-                >
+                <form action="{{route('success', $transaction->id)}}" method="get">
+                  @csrf
+                  @method('GET')
+                  <button class="btn btn-pay btn-block mt-5 btn-primary" type="submit">
+                    I Have Paid
+                  </button>
+                </form>
               </div>
             </div>
           </div>
