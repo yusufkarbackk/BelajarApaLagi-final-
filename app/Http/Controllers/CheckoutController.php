@@ -7,7 +7,10 @@ use App\Models\Courses;
 use App\Models\Gallery;
 use App\Models\Transaction;
 use App\Models\User;
+use App\Mail\TransactionSuccess;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Mail;
+
 
 class CheckoutController extends Controller
 {
@@ -37,9 +40,11 @@ class CheckoutController extends Controller
 
     public function success ($id)
     {
-        $transaction = Transaction::find($id);
+        $transaction = Transaction::with(['user', 'course.gallery'])->find($id);
         $transaction->transaction_status = 'PROCESSED';
         $transaction->save();
+
+        Mail::to($transaction->user)->send(new TransactionSuccess($transaction));
         return view('pages.success');
     }
 }
