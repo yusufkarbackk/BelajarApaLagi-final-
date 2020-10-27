@@ -9,6 +9,8 @@ use App\Models\Gallery;
 
 class CourseController extends Controller
 {
+    public $admin_course = '/admin/courses';
+
     /**
      * Display a listing of the resource.
      *
@@ -47,24 +49,14 @@ class CourseController extends Controller
             'about' => 'required',
             'date' => 'required',
             'mentor' => 'required',
+            'time' => 'required'
         ]);
-
-            //$course = new Courses;
-
-            //$course -> title = $request->title;
-            //$course -> duration = $request->duration;
-            //$course -> price = $request->price;
-            //$course -> location = $request->location;
-            //$course -> about = $request->about;
-            //$course -> date = $request->date;
-            //$course -> mentor = $request->mentor;
-            //$course->save();
             $course = new Courses;
 
             $course::create($request->all());
 
 
-        return redirect('/admin/courses');
+        return redirect($this->admin_course);
 
     }
 
@@ -109,6 +101,7 @@ class CourseController extends Controller
         $course->about = $request->about;
         $course->date = $request->date;
         $course->mentor = $request->mentor;
+        $course->time = $request->time;
 
         $validatedData = $request->validate([
             'title' => 'required|max:255',
@@ -118,10 +111,11 @@ class CourseController extends Controller
             'about' => 'required',
             'date' => 'required',
             'mentor' => 'required',
+            'time' => 'required',
         ]);
 
         $course->save();
-        return redirect('/admin/courses');
+        return redirect($this->admin_course);
 
     }
 
@@ -136,7 +130,7 @@ class CourseController extends Controller
         $course = Courses::find($id);
 
         $course->delete();
-        return redirect('/admin/courses');
+        return redirect($this->admin_course);
 
     }
 }

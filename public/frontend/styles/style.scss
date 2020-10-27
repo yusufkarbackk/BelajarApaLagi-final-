@@ -145,7 +145,7 @@ $playfair: "playfair display";
   }
   .details-card {
     padding: 20px;
-
+    border: none;
     img {
       padding: 20px;
       padding-bottom: 0;
@@ -176,7 +176,8 @@ $playfair: "playfair display";
     }
   }
   .join-card {
-    height: 400px;
+    height: 450px;
+    border: none;
     h5 {
       font-family: $playfair;
     }

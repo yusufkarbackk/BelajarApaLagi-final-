@@ -35,7 +35,7 @@
             <div class="success-text text-center mt-3">
               <h2>Payment Success!</h2>
               <p>
-                We’ve sent you an Email for the class. <br />
+                Your payment confirmation  <br />
                 Don’t forget to check it, see you in class!
               </p>
             </div>

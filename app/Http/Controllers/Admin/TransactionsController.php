@@ -7,9 +7,16 @@ use Illuminate\Http\Request;
 use App\Models\Courses;
 use App\Models\Transaction;
 use App\Model\User;
+use App\Mail\TransactionSuccess;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Mail;
+
 
 class TransactionsController extends Controller
+
 {
+    public $admin_transaction = '/admin/transactions';
+
     /**
      * Display a listing of the resource.
      *
@@ -75,16 +82,14 @@ class TransactionsController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $transactions = Transaction::find($id);
+        $transaction = Transaction::with(['user', 'course.gallery'])->find($id);
         
-        $transactions->transaction_status = $request->transaction_status;
+        $transaction->transaction_status = "SUCCESS";
 
-        $validatedData = $request->validate([
-            'transaction_status' => 'required',
-        ]);
+        $transaction->save();
 
-        $transactions->save();
-        return redirect('/admin/transactions');
+        Mail::to($transaction->user)->send(new TransactionSuccess($transaction));
+        return redirect($this->admin_transaction);
 
     }
 
@@ -99,7 +104,21 @@ class TransactionsController extends Controller
         $transactions = Transaction::find($id);
 
         $transactions->delete();
-        return redirect('/admin/transactions');
+        return redirect($this->admin_transaction);
+
+    }
+
+    public function after(Request $request, $id)
+    {
+        $transaction = Transaction::with(['user', 'course'])->get();
+        
+        if ($transaction->transaction_status == "SUCCESS" && date(+1, $transaction->course->date)) {
+            
+            Mail::to($transaction->user)->send(new TransactionSuccess($transaction));
+            return redirect($this->admin_transaction);
+        }
+
+       
 
     }
 }

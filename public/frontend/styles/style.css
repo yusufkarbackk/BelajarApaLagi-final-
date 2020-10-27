@@ -143,6 +143,7 @@
 
 .details .details-card {
   padding: 20px;
+  border: none;
 }
 
 .details .details-card img {
@@ -177,7 +178,8 @@
 }
 
 .details .join-card {
-  height: 400px;
+  height: 450px;
+  border: none;
 }
 
 .details .join-card h5 {

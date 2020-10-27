@@ -18,7 +18,10 @@ class CheckoutController extends Controller
     {
         $transaction = Transaction::with(['user', 'course'])->find($id);
         
-        return view('pages.checkout', ['transaction' => $transaction]);
+        $total = $transaction->course->price + $transaction->id;
+        return view('pages.checkout', ['transaction' => $transaction,
+                                        'total' => $total,                           
+        ]);
     }
 
     public function proccess (Request $request, $id)

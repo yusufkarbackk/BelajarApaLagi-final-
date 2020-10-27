@@ -28,9 +28,16 @@
             <td>{{$transaction->transaction_status}}</td>
             <td>
               <div class="row d-block justify-content-center ">
+                <form action="{{route('transactions.update', $transaction->id)}}" method="POST">
+                  @csrf
+                  @method('PUT')
+                  <button class="btn btn-success mt-2 mb-2">
+                    Success
+                  </button>
+                </form>
               <a href="{{route('transactions.edit', $transaction->id)}}">
-                  <div class="btn btn-info ml-2 mr-2">
-                    Edit
+                  <div class="btn btn-secondary ml-2 mr-2">
+                    Failed
                   </div>
                 </a>
               <form action="{{route('transactions.destroy', $transaction->id)}}" method="POST">

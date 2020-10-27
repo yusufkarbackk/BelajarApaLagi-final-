@@ -41,7 +41,7 @@
       <div
         class="flex-md-wrap flex-sm-wrap d-lg-flex justify-content-between"
       >
-        <div class="card details-card col-lg-6" style="width: 100%">
+        <div class="card details-card col-lg-6 shadow rounded" style="width: 100%">
           <h4>Details</h4>
           <img
             src="{{Storage::url($details->gallery->image)}}"
@@ -65,7 +65,7 @@
           </div>
         </div>
 
-        <div class="card join-card col-lg-5" style="width: 100%">
+        <div class="card join-card col-lg-5 pb-5 shadow rounded" style="width: 100%">
           <div class="card-body">
             <h5 class="card-title mb-3 text-center">{{$details->title}}
             </h5>
@@ -86,7 +86,7 @@
             </ul>
             <ul class="list-group list-group-horizontal text-center">
               <li class="list-group-item text-left flex-fill">
-                <span>Date/Time</span>
+                <span>Date</span>
               </li>
               <li class="list-group-item text-right flex-fill">
                 {{$details->date}}
@@ -94,12 +94,20 @@
             </ul>
             <ul class="list-group list-group-horizontal text-center">
               <li class="list-group-item text-left flex-fill">
-                <span>Price</span>
+                <span>Time</span>
               </li>
-              <li class="list-group-item text-right flex-fill">Rp{{$details->price}}
+              <li class="list-group-item text-right flex-fill">
+                {{$details->time}}
               </li>
             </ul>
-
+            <ul class="list-group list-group-horizontal text-center">
+              <li class="list-group-item text-left flex-fill">
+                <span>Price</span>
+              </li>
+              <li class="list-group-item text-right flex-fill">Rp{{number_format($details->price)}}
+              </li>
+            </ul>
+            <hr>
             <form action="{{route('checkout-proccess', $details->id)}}" method="post">
               @csrf
               <button class="btn btn-block mt-5 btn-primary" type="submit">

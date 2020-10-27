@@ -49,6 +49,11 @@
       value="{{old('date') ? old('date') : $course->date}}">
     </div>
     <div class="form-group">
+      <label for="exampleInputPassword1">time</label>
+      <input type="time" class="form-control" id="time" name="time" 
+      value="{{old('time') ? old('time') : $course->time}}">
+    </div>
+    <div class="form-group">
       <label for="exampleInputPassword1">Mentor</label>
       <input type="text" class="form-control" id="mentor" name="mentor" 
       value="{{old('mentor') ? old('mentor') : $course->mentor}}">

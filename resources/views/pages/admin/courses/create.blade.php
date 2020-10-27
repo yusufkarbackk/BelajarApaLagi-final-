@@ -42,6 +42,10 @@
       <input type="date" class="form-control" id="date" name="date" value="{{old('date')}}">
     </div>
     <div class="form-group">
+      <label for="time">Date</label>
+      <input type="time" class="form-control" id="time" name="time" value="{{old('time')}}">
+    </div>
+    <div class="form-group">
       <label for="mentor">Mentor</label>
       <input type="text" class="form-control" id="mentor" name="mentor" value="{{old('mentor')}}">
     </div>

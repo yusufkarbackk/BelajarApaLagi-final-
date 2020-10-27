@@ -66,6 +66,14 @@
                     {{$transaction->id}}
                   </li>
                 </ul>
+                <ul class="list-group list-group-horizontal text-center">
+                  <li class="list-group-item text-left flex-fill">
+                    <span> Total</span>
+                  </li>
+                  <li class="list-group-item text-right flex-fill">
+                    Rp {{number_format($total)}}
+                  </li>
+                </ul>
                 <hr />
                 <div class="bank-details">
                   <div class="bank-item">

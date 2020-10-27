@@ -14,6 +14,7 @@
             <th scope="col">Title</th>
             <th scope="col">Duration</th>
             <th scope="col">Date</th>
+            <th scope="col">Time</th>
             <th scope="col">price</th>
             <th scope="col">location</th>
             <th scope="col">about</th>
@@ -29,7 +30,8 @@
             <td>{{$course->title}}</td>
             <td>{{$course->duration}}</td>
             <td>{{$course->date}}</td>
-            <td>{{$course->price}}</td>
+            <td>{{$course->time}}</td>
+            <td>Rp{{number_format($course->price)}}</td>
             <td>{{$course->location}}</td>
             <td>{{$course->about}}</td>
             <td>{{$course->mentor}}</td>
