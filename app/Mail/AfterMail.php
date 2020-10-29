@@ -22,9 +22,9 @@ class AfterMail extends Mailable
      *
      * @return void
      */
-    public function __construct()
+    public function __construct(Transaction $after_email)
     {
-        //
+        $this->after_email = $after_email;
     }
 
     /**
@@ -34,6 +34,7 @@ class AfterMail extends Mailable
      */
     public function build()
     {
-        return $this->view('view.name');
+        return $this->subject('Thank You')
+                    ->view('email.transaction-success');
     }
 }

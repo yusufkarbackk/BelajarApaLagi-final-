@@ -6,12 +6,15 @@ use Illuminate\Console\Command;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use App\Models\Courses;
 use App\Models\Transaction;
 use App\Model\User;
+use App\Models\Courses;
+
 use App\Mail\AfterMail;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Mail;
+use Illuminate\Mail\Mailable;
+
 
 class AfterEmail extends Command
 {
@@ -20,7 +23,7 @@ class AfterEmail extends Command
      *
      * @var string
      */
-    protected $signature = 'dailyAt:after';
+    protected $signature = 'afterEmail:dailyAt';
 
     /**
      * The console command description.
@@ -48,13 +51,12 @@ class AfterEmail extends Command
     {
         $date = date_default_timezone_set('Asia/Jakarta');
 
-        $TranSuccess = Transaction::where('transaction_status', 'SUCCESS')->get();
-        $CourseDate = Courses::all();
+        $TranSuccess = Transaction::with('user', 'course')->where('transaction_status', 'SUCCESS')->get();
         
-        if ($TranSuccess && $date == $CourseDate->date) {
-            
-            Mail::to($after_email->user)->send(new TransactionSuccess($transaction));
-
+        foreach ($TranSuccess as $data) {
+            if ($date == $data->course->date) {
+                Mail::to($data->user)->send(new AfterMail($data));
+            }
         }
 
     }

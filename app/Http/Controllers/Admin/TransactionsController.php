@@ -107,18 +107,4 @@ class TransactionsController extends Controller
         return redirect($this->admin_transaction);
 
     }
-
-    public function after(Request $request, $id)
-    {
-        $transaction = Transaction::with(['user', 'course'])->get();
-        
-        if ($transaction->transaction_status == "SUCCESS" && date(+1, $transaction->course->date)) {
-            
-            Mail::to($transaction->user)->send(new TransactionSuccess($transaction));
-            return redirect($this->admin_transaction);
-        }
-
-       
-
-    }
 }
