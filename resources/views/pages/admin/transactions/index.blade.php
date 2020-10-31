@@ -35,11 +35,6 @@
                     Success
                   </button>
                 </form>
-              <a href="{{route('transactions.edit', $transaction->id)}}">
-                  <div class="btn btn-secondary ml-2 mr-2">
-                    Failed
-                  </div>
-                </a>
               <form action="{{route('transactions.destroy', $transaction->id)}}" method="POST">
                 @csrf
                 @method('DELETE')

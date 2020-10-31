@@ -99,7 +99,7 @@
                     </div>
                   </div>
                 </div>
-                <form action="{{route('success', $transaction->id)}}" method="get">
+                <form action="{{route('confirm', $transaction->id)}}" method="get">
                   @csrf
                   @method('GET')
                   <button class="btn btn-pay btn-block mt-5 btn-primary" type="submit">

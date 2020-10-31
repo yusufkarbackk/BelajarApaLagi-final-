@@ -7,7 +7,7 @@ use App\Models\Courses;
 use App\Models\Gallery;
 use App\Models\Transaction;
 use App\Models\User;
-use App\Mail\TransactionSuccess;
+use App\Mail\TransactionConfirm;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Mail;
 
@@ -41,13 +41,13 @@ class CheckoutController extends Controller
 
     }
 
-    public function success ($id)
+    public function confirm ($id)
     {
-        $transaction = Transaction::with(['user', 'course.gallery'])->find($id);
-        $transaction->transaction_status = 'PROCESSED';
-        $transaction->save();
+        $confirm = Transaction::with(['user', 'course.gallery'])->find($id);
+        $confirm->transaction_status = 'PROCESSED';
+        $confirm->save();
 
-        Mail::to($transaction->user)->send(new TransactionSuccess($transaction));
+        Mail::to($confirm->user)->send(new TransactionConfirm($confirm));
         return view('pages.success');
     }
 }

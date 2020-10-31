@@ -28,7 +28,7 @@ Route::get('/checkout/{id}', [CheckoutController::class, 'index'])->name('checko
 
 Route::post('/checkout/create/{id}', [CheckoutController::class, 'proccess'])->name('checkout-proccess')->middleware('auth', 'verified');
 
-Route::get('/success/{id}', [CheckoutController::class, 'success'])->name('success')->middleware('auth', 'verified');
+Route::get('/confirmation/{id}', [CheckoutController::class, 'confirm'])->name('confirm')->middleware('auth', 'verified');
 
 Route::get('/email/verify', function () {
     return view('auth.verify-email');
