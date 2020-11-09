@@ -9,6 +9,9 @@ use App\Models\Courses;
 
 class GalleryController extends Controller
 {
+
+    public $folder_img = "assets/gallery";
+    public $gallery_index = "/admin/galleries";
     /**
      * Display a listing of the resource.
      *
@@ -48,16 +51,16 @@ class GalleryController extends Controller
         $gallery = $request->all();
 
         $gallery['image'] = $request->file('image')->store(
-            'assets/gallery', 'public'
+            $this->folder_img, 'public'
         );
         $gallery['mentor'] = $request->file('mentor')->store(
-            'assets/gallery', 'public'
+            $this->folder_img, 'public'
         );
 
         Gallery::create($gallery);
 
 
-        return redirect('/admin/galleries');
+        return redirect($this->gallery_index);
     }
 
     /**
@@ -101,15 +104,15 @@ class GalleryController extends Controller
         ]);
 
         $gallery->image = $request->file('image')->store(
-            'assets/gallery', 'public'
+            $this->folder_img, 'public'
         );
 
         $gallery->mentor = $request->file('mentor')->store(
-            'assets/gallery', 'public'
+            $this->folder_img, 'public'
         );
 
         $gallery->save();
-        return redirect('/admin/galleries');
+        return redirect($this->gallery_index);
 
     }
 
@@ -124,6 +127,6 @@ class GalleryController extends Controller
         $gallery = Gallery::find($id);
 
         $gallery->delete();
-        return redirect('/admin/galleries');
+        return redirect($this->gallery_index);
     }
 }

@@ -9,6 +9,7 @@ use Illuminate\Queue\SerializesModels;
 use App\Models\Transaction;
 use App\Models\User;
 use App\Models\Courses;
+use Carbon\Carbon;
 
 class TransactionSuccess extends Mailable
 {

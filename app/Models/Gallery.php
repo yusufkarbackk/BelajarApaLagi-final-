@@ -16,6 +16,6 @@ class Gallery extends Model
 
     public function course()
     {
-        return $this->belongsTo('App\Models\Courses', 'course_id', 'id');
+        return $this->belongsTo('App\Models\Courses', 'course_id', 'id')->withTrashed();
     }
 }

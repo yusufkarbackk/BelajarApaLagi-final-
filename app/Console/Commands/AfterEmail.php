@@ -7,7 +7,7 @@ use Illuminate\Console\Command;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Transaction;
-use App\Model\User;
+use App\Models\User;
 use App\Models\Courses;
 
 use App\Mail\AfterMail;
@@ -49,15 +49,16 @@ class AfterEmail extends Command
      */
     public function handle()
     {
-        $date = date_default_timezone_set('Asia/Jakarta');
+        $date = date('d F, Y');
 
         $TranSuccess = Transaction::with('user', 'course')->where('transaction_status', 'SUCCESS')->get();
         
         foreach ($TranSuccess as $data) {
-            if ($date == $data->course->date) {
+            if (date('Y-m-d') == $data->course->date) {
                 Mail::to($data->user)->send(new AfterMail($data));
+                $this->info('After email has sent to the users');
             }
         }
-
+        $this->info('Appreciation email has sent to the users');
     }
 }

@@ -3,7 +3,7 @@
 @section('content')
 <nav class="navbar navbar-expand-lg navbar-light">
     <div class="container">
-      <a class="navbar-brand" href="">
+    <a class="navbar-brand" href="{{route('home')}}">
         <img src="{{url('frontend/images/Group 29@2x.png')}}" alt="" />
       </a>
       <button
@@ -89,7 +89,7 @@
                 <span>Date</span>
               </li>
               <li class="list-group-item text-right flex-fill">
-                {{$details->date}}
+                {{ \Carbon\Carbon::parse($details->date)->format('d F, Y')}}
               </li>
             </ul>
             <ul class="list-group list-group-horizontal text-center">
@@ -105,6 +105,13 @@
                 <span>Price</span>
               </li>
               <li class="list-group-item text-right flex-fill">Rp{{number_format($details->price)}}
+              </li>
+            </ul>
+            <ul class="list-group list-group-horizontal text-center">
+              <li class="list-group-item text-left flex-fill">
+                <span>Price</span>
+              </li>
+              <li class="list-group-item text-right flex-fill">{{date('d F, Y')}}
               </li>
             </ul>
             <hr>

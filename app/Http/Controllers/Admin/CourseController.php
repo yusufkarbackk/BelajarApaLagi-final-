@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Models\Courses;
 use App\Models\Gallery;
+use App\Controllers\GalleryController;
 
 class CourseController extends Controller
 {
@@ -56,7 +57,7 @@ class CourseController extends Controller
             $course::create($request->all());
 
 
-        return redirect($this->admin_course);
+        return redirect()->route('galleries.create');
 
     }
 
@@ -129,7 +130,7 @@ class CourseController extends Controller
     {
         $course = Courses::find($id);
 
-        $course->delete();
+        $course->delete($id);
         return redirect($this->admin_course);
 
     }
