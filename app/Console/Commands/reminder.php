@@ -3,34 +3,30 @@
 namespace App\Console\Commands;
 
 use Illuminate\Console\Command;
-
 use App\Http\Controllers\Controller;
-use Illuminate\Http\Request;
-use App\Models\Transaction;
 use App\Models\User;
 use App\Models\Courses;
-
-use App\Mail\AfterMail;
+use App\Models\Transaction;
+use App\Mail\reminderMail;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Mail\Mailable;
 
-
-class AfterEmail extends Command
+class reminder extends Command
 {
     /**
      * The name and signature of the console command.
      *
      * @var string
      */
-    protected $signature = 'afterEmail:dailyAt';
+    protected $signature = 'reminder:dailyAt';
 
     /**
      * The console command description.
      *
      * @var string
      */
-    protected $description = 'Send an email after the class is ended';
+    protected $description = 'Send a reminder to user for confirming payment';
 
     /**
      * Create a new command instance.
@@ -49,15 +45,18 @@ class AfterEmail extends Command
      */
     public function handle()
     {
-
-        $TranSuccess = Transaction::with('user', 'course')->where('transaction_status', 'SUCCESS')->get();
+        $nowDate = date('Y-m-d');
         
-        foreach ($TranSuccess as $data) {
-            if (date('Y-m-d') == $data->course->date) {
-                Mail::to($data->user)->send(new AfterMail($data));
-                $this->info('After email has sent to the users');
+        $Tran_InCart = Transaction::with(['user', 'course'])->where('transaction_status', 'IN_CART')->get();
+
+        foreach ($Tran_InCart as $data) {
+            if ($nowDate == date('Y-m-d', strtotime('-2 days', strtotime($data->course->date)))) {
+                
+                Mail::to($data->user)->send(new reminderMail($data));
+                $this->info('Reminder has sent to this user');
             }
+            $this->info('Reminder has sent to all users');
         }
-        $this->info('Appreciation email has sent to the users');
+
     }
 }

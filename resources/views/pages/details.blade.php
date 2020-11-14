@@ -107,13 +107,6 @@
               <li class="list-group-item text-right flex-fill">Rp{{number_format($details->price)}}
               </li>
             </ul>
-            <ul class="list-group list-group-horizontal text-center">
-              <li class="list-group-item text-left flex-fill">
-                <span>Price</span>
-              </li>
-              <li class="list-group-item text-right flex-fill">{{date('d F, Y')}}
-              </li>
-            </ul>
             <hr>
             <form action="{{route('checkout-proccess', $details->id)}}" method="post">
               @csrf
