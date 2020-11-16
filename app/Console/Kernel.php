@@ -7,6 +7,10 @@ use Illuminate\Foundation\Console\Kernel as ConsoleKernel;
 
 class Kernel extends ConsoleKernel
 {
+
+    protected function scheduleTimezone(){
+        return 'Asia/Jakarta';
+    }
     /**
      * The Artisan commands provided by your application.
      *
@@ -14,6 +18,7 @@ class Kernel extends ConsoleKernel
      */
     protected $commands = [
         Commands\AfterEmail::class,
+        Commands\reminder::class,
     ];
 
     /**
@@ -22,10 +27,11 @@ class Kernel extends ConsoleKernel
      * @param  \Illuminate\Console\Scheduling\Schedule  $schedule
      * @return void
      */
+
     protected function schedule(Schedule $schedule)
     {
-        $schedule->command('afterEmail:dailyAt')->dailyAt('16:00')->timezone('Asia/Jakarta');
-        $schedule->command('reminder:dailyAt')->dailyAt('16:00')->timezone('Asia/Jakarta');
+        $schedule->command('afterEmail:dailyAt')->everyFiveMinutes();
+        $schedule->command('reminder:dailyAt')->everyFiveMinutes();
     }
 
     /**

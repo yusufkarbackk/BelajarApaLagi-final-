@@ -53,7 +53,6 @@ class reminder extends Command
             if ($nowDate == date('Y-m-d', strtotime('-2 days', strtotime($data->course->date)))) {
                 
                 Mail::to($data->user)->send(new reminderMail($data));
-                $this->info('Reminder has sent to this user');
             }
             $this->info('Reminder has sent to all users');
         }

@@ -57,6 +57,9 @@ class AfterEmail extends Command
                 Mail::to($data->user)->send(new AfterMail($data));
                 $this->info('After email has sent to the users');
             }
+            else {
+                $this->info('Tidak ada kelas hari ini');
+            }
         }
         $this->info('Appreciation email has sent to the users');
     }
